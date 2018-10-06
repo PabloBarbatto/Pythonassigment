@@ -49,7 +49,7 @@ print("---------------------------")
 print(f"Winner: {winner}")
 print("---------------------------")
 
-write_file = f"pypoll_results_summary.txt"
+write_file = f"pypoll_results.txt"
 
 
 filewriter = open(write_file, mode = 'w')
