@@ -19,11 +19,9 @@ with open (csvpath, newline= '') as csvfile:
     for row in csvreader:
         months = months + 1
         profitlosses = int(row[1]) + profitlosses
-        #prevline = curline
-        #curline = int(row[1])
+        
         
         if (months -1) == 0:
-            prevline = int(row[1])
             curline = int(row[1])     
         else:
             prevline = curline
@@ -40,7 +38,7 @@ with open (csvpath, newline= '') as csvfile:
                 mindate = str(row[0])
             else:
                 minchg = minchg     
-        
+              
         
 
 avgchangeprolos = round(changebwtmonths/numofchanges, 2)

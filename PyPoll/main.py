@@ -42,24 +42,23 @@ winner = candidates[max_index]
 
 print("Election Results")
 print("--------------------------")
-print(f"Total Votes: {num_votes}")
+print("Total Votes: " + str(num_votes))
+print("--------------------------")
 for count in range(len(candidates)):
-    print(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})")
+    print(str(candidates[count]) + ": " + str(percentages[count]) + "% (" + str(vote_counts[count]) + ")")
 print("---------------------------")
-print(f"Winner: {winner}")
+print("Winner: (" + str(winner) + ")" )
 print("---------------------------")
 
-write_file = f"pypoll_results.txt"
+output_dest = os.path.join('pypoll_output.txt')
+with open(output_dest, 'w') as writefile:
 
-
-filewriter = open(write_file, mode = 'w')
-filewriter.write("Election Results\n")
-filewriter.write("--------------------------\n")
-filewriter.write(f"Total Votes: {num_votes}\n")
-for count in range(len(candidates)):
-    filewriter.write(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})\n")
-filewriter.write("---------------------------\n")
-filewriter.write(f"Winner: {winner}\n")
-filewriter.write("---------------------------\n")
-
-filewriter.close()
+    writefile.write("Election Results\n")
+    writefile.write("--------------------------\n")
+    writefile.write("Total Votes: " + str(num_votes) +"\n")
+    writefile.write("--------------------------\n")
+    for count in range(len(candidates)):
+        writefile.write(str(candidates[count]) + ": " + str(percentages[count]) + "% (" + str(vote_counts[count]) + ")\n")
+    writefile.write("---------------------------\n")
+    writefile.write("Winner: (" + str(winner) + ")\n")
+    writefile.write("---------------------------\n")
